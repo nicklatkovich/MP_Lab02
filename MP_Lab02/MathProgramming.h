@@ -85,8 +85,8 @@ namespace MP {
 		std::vector<uint> result;
 		uint min_way_length = UINT_MAX;
 		for (uint i = 0; i < perms.size( ); i++) {
-			uint way_length = 0;
-			for (uint j = 0; j < perms[i].size( ); j++) {
+			uint way_length = matrix.get(0, perms[i][0]) + matrix.get(perms[i][perms[i].size( ) - 1], 0);
+			for (uint j = 0; j < perms[i].size( ) - 1; j++) {
 				uint road_length = matrix.get(perms[i][j], perms[i][(j + 1) % perms[i].size( )]);
 				if (road_length >= 0) {
 					way_length += road_length;
